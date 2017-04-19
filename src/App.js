@@ -1,23 +1,20 @@
-import React, { Component } from 'react';
-import LandingPage from './LandingPage';
-import Grafo from './Grafo';
-import PieCharts from './PieCharts';
-import './App.css';
+import React from 'react';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <div className="container-fluid">
-              <div className="row">
-                    <LandingPage/>
-              </div>
-        </div>
-        <Grafo/>
-        <PieCharts/>
+import 'bootstrap/dist/css/bootstrap.css';
+import './components/App/App.css'
+
+const App = (props) => {
+  return (
+    <div className="App">
+      <Navbar />
+      <div className="container-fluid">
+        {props.children}
       </div>
-      );
-  }
+      <Footer />
+    </div>
+  );
 }
 
 export default App;
