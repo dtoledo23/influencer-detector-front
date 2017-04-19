@@ -6,7 +6,7 @@ import store from './stores/storeApp';
 
 ReactDOM.render(
   <Provider store={store}>
-    <div style={{ height: '100%' }}>
+    <div>
       { Routes }
     </div>
   </Provider>, document.getElementById('root'));
