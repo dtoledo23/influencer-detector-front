@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Grafo from '../components/Grafo';
-import PieCharts from '../components/PieCharts';
+import Grafo from '../components/Graph/Graph';
+import PieCharts from '../components/PieChart/PieChart';
 
 class SearchResult extends Component {
   render() {

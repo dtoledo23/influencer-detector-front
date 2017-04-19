@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react'
+import './piechart.css'
 
-class Piecharts extends Component {
-  render() {
-    return (
-      <div className="container">
+const PieChart = (props) => {
+  return (
+    <div className="container">
   <div className="row">
     <div className="col-sm-7" id="chart">
       <h1>Chart 1</h1>
@@ -13,8 +13,7 @@ class Piecharts extends Component {
     </div>
   </div>
 </div>
-      );
-  }
-}
+  );
+};
 
-export default Piecharts;
+export default PieChart
