@@ -1,22 +1,23 @@
 import React, { Component } from 'react';
-import LandingPage from './components/LandingPage';
-import Grafo from './components/Grafo';
-import PieCharts from './components/PieCharts';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 
 import 'bootstrap/dist/css/bootstrap.css';
 
 class App extends Component {
+  constructor(props) {
+    super(props)
+  }
+
   render() {
     return (
       <div className="App">
-        <div className="container-fluid">
-              <div className="row">
-                    <LandingPage/>
-              </div>
-        </div>
-        <Grafo/>
-        <PieCharts/>
+      <Navbar />
+      <div className="container-fluid">
+        {this.props.children}
       </div>
+      <Footer />
+    </div>
       );
   }
 }
