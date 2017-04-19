@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import LandingPage from './LandingPage';
-import Grafo from './Grafo';
-import PieCharts from './PieCharts';
-import './App.css';
+import LandingPage from './components/LandingPage';
+import Grafo from './components/Grafo';
+import PieCharts from './components/PieCharts';
+
+// import 'bootstrap/dist/css/bootstrap.css';
 
 class App extends Component {
   render() {
