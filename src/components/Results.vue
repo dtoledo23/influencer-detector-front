@@ -1,56 +1,69 @@
 <template>
-  <div class="row">
-    <div class="col-md-12">
-      <h1>{{ msg }}</h1>
-    </div>
-    
- <div class="col-md-2">
-      <Top5/>
-    </div>
-    
-    <div class="col-md-10" >
-      <div id="custom-charts">
-      <Graph/>
-      <hr>
-      <div class="row">
-        <div class="col-md-6">
-          <PieChart/>
+  <div class="ui grid" id="results">
+    <div class="row">
+      <div class="four wide column">
+        <Top5/>
+      </div>
+      <div class="twelve wide column">
+        <Stats/>
+        <div class="ui divider"></div>
+        <div class="ui grid">
+          <div class="eight wide column">
+            <PieChart v-bind:info="audience"/>
+          </div>
+          <div class="eight wide column">
+            <PieChart v-bind:info="likes"/>
+          </div>
         </div>
-        <div class="col-md-6">
-          <PieChart/>
-        </div>
-        
       </div>
     </div>
-    </div> 
-  </div> 
+  </div>
 </template>
 
 <script>
-import Top5 from '@/components/Top5'
-import Graph from '@/components/Graph'
-import PieChart from '@/components/PieChart'
+  import Top5 from '@/components/results/Top5'
+  import PieChart from '@/components/results/PieChart'
+  import Stats from '@/components/results/Stats'
 
-export default {
-  name: 'results',
-  data () {
-    return {
-      msg: 'Results',
-      text: ""
+  export default {
+    name: 'results',
+    data () {
+      return {
+        msg: 'Results',
+        text: "",
+        likes: {
+          title: 'Likes',
+          data: [
+          {value:335, name:'Martin'},
+          {value:310, name:'Moscosa'},
+          {value:274, name:'Monse'},
+          {value:235, name:'Penny'},
+          {value:400, name:'Ambar'}
+          ]
+        },
+        audience: {
+          title: 'Audience',
+          data: [
+          {value:335, name:'Martin'},
+          {value:310, name:'Moscosa'},
+          {value:274, name:'Monse'},
+          {value:235, name:'Teji'},
+          {value:400, name:'Carlota'}
+          ]
+        }
+      }
+    },
+    components:{
+      Top5:Top5,
+      PieChart:PieChart,
+      Stats: Stats
     }
-  },
-  components:{
-    Top5:Top5,
-    Graph:Graph,
-    PieChart:PieChart
   }
-}
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style>
+
+<style lang="less" scoped>
   #custom-charts{
     margin-left: 100px;
   }
-
 </style>

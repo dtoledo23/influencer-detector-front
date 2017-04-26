@@ -4,6 +4,9 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import BootstrapVue from 'bootstrap-vue';
+import VueD3 from 'vue-d3'
+
+Vue.use(VueD3)
 Vue.use(BootstrapVue);
 require('./assets/new-age/new-age.css')
 

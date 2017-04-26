@@ -13,7 +13,7 @@
 
 <script>
 import axios from 'axios';
-import Top5Element from "@/components/Top5Element"
+import Top5Element from "@/components/results/Top5Element"
 import Loading from '@/components/Loading'
 export default {
   name: 'top5',
@@ -34,6 +34,7 @@ export default {
     axios.get(`http://jsonplaceholder.typicode.com/posts`)
     .then(response => {
       // JSON responses are automatically parsed.
+      // this.results = _.take(response.data, 5);
       this.results = response.data;
       this.loading = false;
     })
@@ -55,7 +56,6 @@ h2 {
   color: white;
   text-transform: uppercase;
   font-size: 36px;
-  margin-left: 50px;
 }
 
 ul {
