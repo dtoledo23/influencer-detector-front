@@ -17,9 +17,15 @@
       <div class="eight wide column">
         <h3>Use Cases</h3>
         <div class="ui tall stacked segment">
-  <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-  <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-</div>
+
+   
+  
+  
+          <p>Compañías toman decisiones estratégicas basándose en las tendencias en Facebook </p>
+          <p>Ver las empresas más influyentes en donde poder trabajar (Estudiante)</p>
+          <p>Ver los restaurantes más influyentes dentro de una zona en particular</p>
+          <p>Ver el ecosistema de las diferentes categorías</p>
+        </div>
       </div>
       <div class="eight wide column">
         <h3 class="architecture">Architecture</h3>
@@ -28,16 +34,88 @@
       <div class="row">
         <div class="sixteen wide column">
           <h3 class="featuresTitle">Features</h3>
-        <div class="ui tall stacked segment features">
-  <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-  <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-</div>
+          <div class="ui tall stacked segment features">
+            <div class="ui grid">
+              <div class="sixteen wide column">
+                <h4>Docker</h4>
+                <p>Levantar instancias de servidores para cada uno de los micro-servicios</p>
+                <h4>AWS</h4>
+              </div>
+              <div class="five wide column">
+                <dl>
+                  <dt>
+                    Cassandra
+                  </dt>
+                  <dd>
+                    3 Instancias de nodos
+                    Cada uno con:
+                    <ul class="lista">
+                      <li>
+                        2 cores
+                      </li>
+                      <li>
+                       8GB RAM
+                     </li>
+                     <li>
+                      32GB SSD
+                    </li>
+                  </ul>
+
+                </dd>
+
+              </dl>
+            </div>
+            <div class="five wide column">
+              <dl>
+                <dt>Spark</dt>
+                <dd>
+                  5 Instancias con:
+                  <ul class="lista">
+                    <li>
+                      4 cores
+                    </li>
+                    <li>
+                      15GB RAM
+                    </li>
+                    <li>
+                      80GB SSD
+                    </li>
+                  </ul>
+                </dd>
+              </dl>
+            </div>
+            <div class="five wide column">
+              <dl class="five wide column">
+                <dt>Front y Back End</dt>
+                <dd>
+                  1 Instancia con:
+                  <ul class="lista">
+                    <li>
+                      2 cores
+                    </li>
+                    <li>
+                      4GB RAM
+                    </li>
+                    <li>
+                      20GB SSD
+                    </li>
+                  </ul>
+                </dd>
+              </dl>
+            </div>
+          </div>
+
+
+
+
+
         </div>
       </div>
-      
     </div>
 
   </div>
+
+</div>
 
 </template>
 
@@ -106,6 +184,15 @@
   }
   .featuresTitle{
     margin-top: -60px;
+  }
+  h4{
+    font-weight: bolder;
+  }
+  ul.lista{
+    li{
+      font-size: 10px;
+    }
+    
   }
 
 
