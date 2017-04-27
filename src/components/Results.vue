@@ -1,25 +1,12 @@
 <template>
   <div class="ui grid" id="results">
+    <h1>Results</h1>
     <div class="row">
-      <div class="four wide column">
-        <Top5 v-bind:topFive="topFive"/>
-      </div>
-      <div class="twelve wide column">
+      <div class="sixteen wide column">
         <Stats v-bind:stats="stats"/>
-        <div class="ui divider"></div>
-        <div class="ui grid" v-if="activeView == 'pies'">
-          <div class="eight wide column">
-            <PieChart v-bind:info="audience"/>
-          </div>
-          <div class="eight wide column">
-            <PieChart v-bind:info="likes"/>
-          </div>
-        </div>
-        <div class="ui grid" v-if="activeView == 'map'">
-          <div class="sixteen wide column">
-            <GeoStats/>
-          </div>
-        </div>
+      </div>
+      <div class="sixteen wide column">
+        <Top5 v-bind:topFive="topFive"/>
       </div>
     </div>
   </div>
@@ -81,6 +68,7 @@
           "pages": query.pages
         })
         .then(response => {
+          
           this.topFive = response.data.top_five
           this.stats.number_edges = response.data.number_edges
           this.stats.number_likes = response.data.number_likes
@@ -102,6 +90,9 @@
 
 
 <style lang="less" scoped>
+  #results{
+    min-height: 800px !important;
+  }
   #custom-charts{
     margin-left: 100px;
   }

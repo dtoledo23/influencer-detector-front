@@ -1,31 +1,36 @@
 <template>
-  <div class="ui cards resultItem">
-    <div class="card">
-      <div class="content">
-        <img class="right floated mini ui image" :src="result.profile_picture" data-pin-nopin="true">
-        <div class="header">
-
-          {{ result.name | truncate(25)}}
-          
-        </div>
-        <div class="meta">
-          <div class="custom-likes"><i class="thumbs outline up icon"></i> {{ result.likes }}</div>
-        </div>
-        <div class="description">
-          <div class="ui grid">
-            <div class="eight wide column">Ranking {{ result.ranking }}</div>
-            <div class="eight wide column page-rank">Score {{ result.score | truncate(5)}}</div>
-          </div>
-        </div>
-      </div>
+  <div class="resultItem">
+    <div class="image">
+      <img class="ui bordered rounded image" :src="result.profile_picture">
     </div>
-  </div>
+    <div class="content">
+      <div class="header">{{ result.name | truncate(10)}}</div>
+
+      <div class="description">
+        <span class="right floated">
+         <i class="comments outline icon"></i>
+         {{ result.talking_about}}
+       </span>
+       <i class="thumbs outline up icon"></i> {{ result.likes }}
+     </div>
+   </div>
+   <div class="extra content">
+    <span class="right floated">
+     <i class="bullseye icon"></i>
+     {{ result.score | truncate(5)}}
+   </span>
+   <span>
+    <i class="list icon"></i>
+    {{ result.ranking }}
+  </span>
+</div>
+</div>
 </template>
 
 <script>
-import Vue from 'vue'
-var VueTruncate = require('vue-truncate-filter');
-Vue.use(VueTruncate);
+  import Vue from 'vue'
+  var VueTruncate = require('vue-truncate-filter');
+  Vue.use(VueTruncate);
   export default {
 
     name: 'Top5Element',
@@ -46,22 +51,41 @@ Vue.use(VueTruncate);
       this.stringLify();
     },
     filters: {
-  
-    truncate: function(string, value) {
-      return string.substring(0, value) + '...';
-    }
+      truncate: function(stingValue, value) {
+        return stingValue.substring(0, value) + '...';
+      }
     },
-
     props: ['result']
   };
 </script>
 
 <style lang="less" scoped>
+  .pageAvatar{
+    width: 100%;
+    padding: 10px;
+  }
   .resultItem{
-    margin-left: -60px;
-    margin-bottom: 10px;
-    .card{
-      background: rgba(255, 255, 255, 0.7);
+    color: black;
+    background: rgba(255, 255, 255, 0.7);
+    img{
+      width: 100%;
+    }
+    .content{
+      .header{
+        font-weight: 700;
+        font-size: 1.28571429em;
+        margin-top: -.21425em;
+        line-height: 1.28571429em;
+        padding: 10px 5px;
+      }
+    }
+    .description{
+      padding: 5px 10px 2px 10px;
+    }
+    .extra{
+      &.content{
+        padding: 10px;
+      }
     }
     .custom-likes{
       color: black;

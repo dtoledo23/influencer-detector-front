@@ -35,9 +35,10 @@
       </div>
     </div>
     <div class="four wide column" id="stats-buttons">
-    <button class="ui fluid inverted default button">Stats</button>
+      <button class="ui fluid inverted black button" v-on:click="goToMonitoring()">Monitoring</button>
       <div class="ui divider"></div>
-      <button class="ui fluid inverted default button">GeoStats</button>
+      <!-- <button class="ui fluid inverted default button" v-if="piechart == false" v-on:click="togglePie()">Pie Chart</button>
+      <button class="ui fluid inverted default button" v-if="piechart == true" v-on:click="togglePie()">Roster</button> -->
     </div>
   </div>
 </template>
@@ -49,10 +50,18 @@
 
     data () {
       return {
-
+        piechart: false
       };
     },
     props: ['stats'],
+    methods:{
+      goToMonitoring: function(){
+        location.href = 'http://ec2-35-167-97-183.us-west-2.compute.amazonaws.com:8090/';
+      },
+      togglePie: function(){
+        if(this.piechart){this.piechart = false}else{this.piechart = true}
+      },
+    }
   };
 </script>
 
