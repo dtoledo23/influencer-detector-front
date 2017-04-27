@@ -10,6 +10,6 @@ ENV NPM_CONFIG_LOGLEVEL warn
 RUN npm install
 COPY . .
 
-EXPOSE 8080
+EXPOSE 80
 CMD ["npm", "run", "dev"]
 
