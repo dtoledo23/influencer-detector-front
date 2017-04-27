@@ -2,19 +2,19 @@
   <div class="ui cards resultItem">
     <div class="card">
       <div class="content">
-        <img class="right floated mini ui image" src="https://semantic-ui.com/images/avatar/large/elliot.jpg" data-pin-nopin="true">
+        <img class="right floated mini ui image" :src="result.profile_picture" data-pin-nopin="true">
         <div class="header">
 
-          {{ result.title | truncate(25)}}
+          {{ result.name | truncate(25)}}
           
         </div>
         <div class="meta">
-          <div class="custom-likes"><i class="thumbs outline up icon"></i> 230,000</div>
+          <div class="custom-likes"><i class="thumbs outline up icon"></i> {{ result.likes }}</div>
         </div>
         <div class="description">
           <div class="ui grid">
-            <div class="eight wide column">Ranking 3</div>
-            <div class="eight wide column page-rank">Page Rank 0.57</div>
+            <div class="eight wide column">Ranking {{ result.ranking }}</div>
+            <div class="eight wide column page-rank">Score {{ result.score | truncate(5)}}</div>
           </div>
         </div>
       </div>
@@ -34,6 +34,16 @@ Vue.use(VueTruncate);
       return {
 
       };
+    },
+    methods:{
+      stringLify: function(){
+        var a= this.result.score;
+        this.result.score=a.toString();
+      }
+      
+    },
+    mounted(){
+      this.stringLify();
     },
     filters: {
   

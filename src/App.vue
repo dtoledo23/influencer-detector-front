@@ -13,6 +13,7 @@
   // import 'bootstrap-vue/dist/bootstrap-vue.css'
   import TopMenu from '@/components/elements/TopMenu.vue';
   import PageFooter from '@/components/elements/PageFooter.vue';
+  import _ from 'lodash';
   export default {
     name: 'app',
     components: {

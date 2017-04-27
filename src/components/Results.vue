@@ -2,17 +2,22 @@
   <div class="ui grid" id="results">
     <div class="row">
       <div class="four wide column">
-        <Top5/>
+        <Top5 v-bind:topFive="topFive"/>
       </div>
       <div class="twelve wide column">
-        <Stats/>
+        <Stats v-bind:stats="stats"/>
         <div class="ui divider"></div>
-        <div class="ui grid">
+        <div class="ui grid" v-if="activeView == 'pies'">
           <div class="eight wide column">
             <PieChart v-bind:info="audience"/>
           </div>
           <div class="eight wide column">
             <PieChart v-bind:info="likes"/>
+          </div>
+        </div>
+        <div class="ui grid" v-if="activeView == 'map'">
+          <div class="sixteen wide column">
+            <GeoStats/>
           </div>
         </div>
       </div>
@@ -23,7 +28,10 @@
 <script>
   import Top5 from '@/components/results/Top5'
   import PieChart from '@/components/results/PieChart'
+  import GeoStats from '@/components/results/GeoStats'
   import Stats from '@/components/results/Stats'
+
+  import axios from 'axios';
 
   export default {
     name: 'results',
@@ -31,6 +39,13 @@
       return {
         msg: 'Results',
         text: "",
+        topFive: [],
+        activeView: 'stats',
+        stats:{
+          number_edges: '',
+          number_likes: '',
+          number_nodes: '',
+        },
         likes: {
           title: 'Likes',
           data: [
@@ -53,10 +68,34 @@
         }
       }
     },
+    mounted(){
+      this.runCrawler()
+    },
+    methods:{
+      runCrawler: function(){
+        var query = this.$cookie.get('query');
+        query = JSON.parse(query)
+        this.categories = []
+        axios.post(' http://ec2-34-208-123-87.us-west-2.compute.amazonaws.com:3000/analyze',{
+          "category": query.category,
+          "pages": query.pages
+        })
+        .then(response => {
+          this.topFive = response.data.top_five
+          this.stats.number_edges = response.data.number_edges
+          this.stats.number_likes = response.data.number_likes
+          this.stats.number_nodes = response.data.number_nodes
+        })
+        .catch(e => {
+          this.errors.push(e)
+        })
+      },
+    },
     components:{
       Top5:Top5,
       PieChart:PieChart,
-      Stats: Stats
+      Stats: Stats,
+      GeoStats: GeoStats
     }
   }
 </script>

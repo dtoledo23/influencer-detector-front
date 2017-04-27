@@ -1,10 +1,10 @@
 <template>
   <div class="hello">
   <h2>{{ msg }}</h2>
-  <Loading v-if="loading==true"/>
+  <!-- <Loading v-if="loading==true"/> -->
     
     <ul v-if="loading==false">
-      <li v-for="result in results">
+      <li v-for="result in topFive">
         <Top5Element v-bind:result="result"/>
       </li>
     </ul>  
@@ -20,30 +20,17 @@ export default {
   data () {
     return {
       msg: 'Top 5',
-      results: [],
-      errors:[],
-      loading: true
+      loading: false
     }
   },
+  props: ['topFive'],
   components:{
     Top5Element:Top5Element,
     Loading:Loading
   },
   methods:{
-    created: function() {
-    axios.get(`http://jsonplaceholder.typicode.com/posts`)
-    .then(response => {
-      // JSON responses are automatically parsed.
-      // this.results = _.take(response.data, 5);
-      this.results = response.data;
-      this.loading = false;
-    })
-    .catch(e => {
-      this.errors.push(e)
-    })}
   },
   mounted(){
-    this.created();
   }
   
 }
