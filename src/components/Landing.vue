@@ -242,7 +242,7 @@ export default {
       }
     },
     getFbPageId1: function(){
-      axios.get(`http://ec2-34-208-123-87.us-west-2.compute.amazonaws.com:3000/status?url=`+this.fbPage1.page)
+      axios.get(`http://ec2-35-160-85-138.us-west-2.compute.amazonaws.com:3000/status?url=`+this.fbPage1.page)
       .then(response => {
         this.fbPage1.pageId = response.data.id
         this.fbPage1.status = response.data.status
@@ -254,7 +254,7 @@ export default {
       })
     },
     getFbPageId2: function(){
-      axios.get(`http://ec2-34-208-123-87.us-west-2.compute.amazonaws.com:3000/status?url=`+this.fbPage2.page)
+      axios.get(`http://ec2-35-160-85-138.us-west-2.compute.amazonaws.com:3000/status?url=`+this.fbPage2.page)
       .then(response => {
         this.fbPage2.pageId = response.data.id
         this.fbPage2.status = response.data.status
@@ -266,7 +266,7 @@ export default {
       })
     },
     getFbPageId3: function(){
-      axios.get(`http://ec2-34-208-123-87.us-west-2.compute.amazonaws.com:3000/status?url=`+this.fbPage3.page)
+      axios.get(`http://ec2-35-160-85-138.us-west-2.compute.amazonaws.com:3000/status?url=`+this.fbPage3.page)
       .then(response => {
         this.fbPage3.pageId = response.data.id
         this.fbPage3.status = response.data.status
@@ -278,7 +278,7 @@ export default {
       })
     },
     getFbPageId4: function(){
-      axios.get(`http://ec2-34-208-123-87.us-west-2.compute.amazonaws.com:3000/status?url=`+this.fbPage4.page)
+      axios.get(`http://ec2-35-160-85-138.us-west-2.compute.amazonaws.com:3000/status?url=`+this.fbPage4.page)
       .then(response => {
         this.fbPage4.pageId = response.data.id
         this.fbPage4.status = response.data.status
@@ -290,7 +290,7 @@ export default {
       })
     },
     getFbPageId5: function(){
-      axios.get(`http://ec2-34-208-123-87.us-west-2.compute.amazonaws.com:3000/status?url=`+this.fbPage5.page)
+      axios.get(`http://ec2-35-160-85-138.us-west-2.compute.amazonaws.com:3000/status?url=`+this.fbPage5.page)
       .then(response => {
         this.fbPage5.pageId = response.data.id
         this.fbPage5.status = response.data.status
@@ -313,7 +313,7 @@ export default {
             getCategories: function(){
               var pagesToFetch = this.buildCategories()
               this.categories = []
-              axios.post('http://ec2-34-208-123-87.us-west-2.compute.amazonaws.com:3000/categories',{
+              axios.post('http://ec2-35-160-85-138.us-west-2.compute.amazonaws.com:3000/categories',{
                 pages: pagesToFetch
               })
               .then(response => {

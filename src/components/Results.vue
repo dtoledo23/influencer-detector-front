@@ -63,7 +63,7 @@
         var query = this.$cookie.get('query');
         query = JSON.parse(query)
         this.categories = []
-        axios.post(' http://ec2-34-208-123-87.us-west-2.compute.amazonaws.com:3000/analyze',{
+        axios.post(' http://ec2-35-160-85-138.us-west-2.compute.amazonaws.com:3000/analyze',{
           "category": query.category,
           "pages": query.pages
         })
